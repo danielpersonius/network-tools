@@ -7,8 +7,12 @@
 # prompt to continue before executing commands that will scroll the
 # window(want to print to a txt for logging and convenience, but 
 # dont want to make it necessary to open to read output, which
-# defeats the purpose of color coding and formatting)
+# defeats the purpose of color coding and formatting), generalize
+# helper function so it can draw header as well
 #####
+
+# hide cursor
+tput civis
 
 # draw footer helper fn
 draw_footer () {
@@ -179,3 +183,5 @@ done
 #    echo
 #done
 tput sgr0
+# show cursor
+tput cnorm
