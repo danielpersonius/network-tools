@@ -27,13 +27,12 @@ play_animation () {
     #tput rev
     # test
     K="0"
-    #while [ $K -lt 5 ]; do
-    while true; do
+    while [ $K -lt 5 ]; do
+    #while true; do
         for j in {1..7}; do
-            tput cup $(( $1 / 2 )) $(( $2 / 2 - 3))
+            tput cup $(( $1 / 2 )) $(( $2 / 2 - 10))
             tput setaf $j
             echo -n "T"
-	    # j -1 + 7 is more clear and debuggable than j + 6
             tput setaf $(( ($j - 1 + 7 - 1) % 7 + 1))
             echo -n "E"
             tput setaf $(( ($j - 2 + 7 - 1) % 7 + 1))
@@ -46,13 +45,6 @@ play_animation () {
             echo -n "N"
             tput setaf $(( ($j - 6 + 7 - 1) % 7 + 1))
             echo -n "G"
-            #tput setaf $(( ($j + 6) % 7 + 1))
-	    #echo -n "E"
-	    #tput setaf $(( ($j + 5) % 7 + 1))
-	    #echo -n "S"
-	    #tput setaf $(( ($j + 4) % 7 + 1))
-	    #echo -n "T"
-	    #sleep 0.5
             sleep 0.025
         done
         (( K++ ))
